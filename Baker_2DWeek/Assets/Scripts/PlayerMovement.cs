@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rB2D;
 
     public float runSpeed;
+    public float jumpSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -25,5 +26,10 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontaInput = Input.GetAxis("Horizontal");
         rB2D.velocity = new Vector2(horizontaInput * runSpeed * Time.deltaTime, rB2D.velocity.y);
+    }
+
+    void Jump()
+    {
+        rB2D.velocity = new Vector2(rB2D.velocity.x, jumpSpeed);
     }
 }
