@@ -19,7 +19,17 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Jump"))
+        {
+            int levelMask = LayerMask.GetMask("Level");
+
+            if (Physics2D.BoxCast(transform.position, new Vector2(1f, .1f), 0f, Vector2.down, .01f, levelMask))
+            {
+                Jump();
+
+            }
+
+        }
     }
 
     private void FixedUpdate()
