@@ -24,6 +24,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         float horizontaInput = Input.GetAxis("Horizontal");
-        rB2D.velocity = 
+        rB2D.velocity = new Vector2(horizontaInput * runSpeed * Time.deltaTime, rB2D.velocity.y);
     }
 }
