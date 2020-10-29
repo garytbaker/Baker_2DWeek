@@ -39,11 +39,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (rB2D.velocity.x <0f)
         {
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
         }
         else if (rB2D.velocity.x > 0f)
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
         }
 
         if (Mathf.Abs(horizontaInput)>0f)
