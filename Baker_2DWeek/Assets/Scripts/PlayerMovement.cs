@@ -54,10 +54,23 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetBool("IsRunning", false);
         }
+        if (Input.GetAxis("Vertical") < 0f)
+        {
+            animator.SetBool("Falling", true);
+        }
+        else
+        {
+            animator.SetBool("Falling", false);
+        }
+        if (animator.GetBool("Jumping")==true)
+        {
+            animator.SetBool("Jumping", false);
+        }
     }
 
     void Jump()
     {
         rB2D.velocity = new Vector2(rB2D.velocity.x, jumpSpeed);
+        animator.SetBool("Jumping", true);
     }
 }
