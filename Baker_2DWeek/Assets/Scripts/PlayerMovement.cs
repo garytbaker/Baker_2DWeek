@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpSpeed;
     public SpriteRenderer spriteRenderer;
     public Text scoretext;
-    int score = 0;
+    public int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -78,10 +78,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Coin")
+        if(collision.gameObject.CompareTag("PickUp"))
         {
             score += 1;
             scoretext.text = "Score: " + score.ToString();
+            collision.gameObject.SetActive(false); 
         }
     }
 }
