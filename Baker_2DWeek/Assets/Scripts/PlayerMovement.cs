@@ -76,4 +76,12 @@ public class PlayerMovement : MonoBehaviour
         rB2D.velocity = new Vector2(rB2D.velocity.x, jumpSpeed);
         animator.SetBool("Jumping", true);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Coin")
+        {
+            score += 1;
+            scoretext.text = "Score: " + score.ToString();
+        }
+    }
 }
